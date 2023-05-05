@@ -4,6 +4,7 @@ import { FormPhonebook } from './FormPhonebook/FormPhonebook';
 import { ContactsPhonebook } from './ContactsPhonebook/ContactsPhonebook';
 import { nanoid } from 'nanoid';
 
+
 export class App extends Component {
   state = {
     contacts: [
@@ -52,7 +53,14 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          display: 'inline-flex',
+          padding: 20,
+          flexDirection: 'column',
+          border: '2px solid black',
+        }}
+      >
         <h1>Phonebook</h1>
         <FormPhonebook onSubmit={this.formSubmitHandler} />
         <FindContacts onInput={this.findName} />

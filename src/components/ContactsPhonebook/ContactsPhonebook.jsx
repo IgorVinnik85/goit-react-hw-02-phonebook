@@ -1,14 +1,17 @@
-export const ContactsPhonebook = ({data, deleteContact}) => {
+import css from './ContactsPhonebook.module.css'
+
+
+export const ContactsPhonebook = ({ data, deleteContact }) => {
   // console.log(data);
   const filtered = data();
   return (
-    <ul>
+    <ul className={css.list}>
       {filtered.map(el => {
         return (
-          <li key={el.id}>
+          <li className={css.item} key={el.id}>
             <span> {el.name}</span>
             <span> {el.number}</span>
-            <button type="button" onClick={() => deleteContact(el.id)}>
+            <button className={css.btn} type="button" onClick={() => deleteContact(el.id)}>
               Delete
             </button>
           </li>
