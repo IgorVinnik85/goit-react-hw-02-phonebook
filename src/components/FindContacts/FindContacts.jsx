@@ -5,12 +5,12 @@ export class FindContacts extends Component {
   //   name: '',
   // };
 
-  handleFindInput = event => {
-    // console.log(event.target.value);
-    //   this.setState({ name: event.target.value });
+  // handleFindInput = event => {
+  //   // console.log(event.target.value);
+  //   //   this.setState({ name: event.target.value });
       
-      this.props.onInput(event.target.value);
-  };
+  //     this.props.onInput(event.target.value);
+  // };
 
   render() {
     return (
@@ -19,8 +19,8 @@ export class FindContacts extends Component {
         <input
           type="text"
           placeholder="Enter find name"
-          // value={this.state.name}
-          onChange={this.handleFindInput}
+          value={this.props.value}
+          onChange={this.props.onInput}
         />
       </div>
     );

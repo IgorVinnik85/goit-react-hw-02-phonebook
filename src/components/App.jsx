@@ -5,7 +5,6 @@ import { ContactsPhonebook } from './ContactsPhonebook/ContactsPhonebook';
 import StaticContact from '../components/ContactsPhonebook/StaticContact.json';
 import { nanoid } from 'nanoid';
 
-
 export class App extends Component {
   state = {
     contacts: StaticContact,
@@ -30,9 +29,9 @@ export class App extends Component {
     });
   };
 
-  findName = data => {
-    console.log(this.state.filter);
-    this.setState({ filter: data });
+  findName = event => {
+    // console.log(event.target.value);
+    this.setState({ filter: event.target.value });
   };
 
   filteredName = () => {
@@ -59,7 +58,7 @@ export class App extends Component {
       >
         <h1>Phonebook</h1>
         <FormPhonebook onSubmit={this.formSubmitHandler} />
-        <FindContacts onInput={this.findName} />
+        <FindContacts onInput={this.findName} value={this.state.filter} />
         <h2>Contacts</h2>
         <ContactsPhonebook
           data={this.filteredName}
