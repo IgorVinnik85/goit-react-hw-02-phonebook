@@ -1,4 +1,4 @@
-export const ContactsPhonebook = ({data}) => {
+export const ContactsPhonebook = ({data, deleteContact}) => {
   // console.log(data);
   const filtered = data();
   return (
@@ -8,6 +8,9 @@ export const ContactsPhonebook = ({data}) => {
           <li key={el.id}>
             <span> {el.name}</span>
             <span> {el.number}</span>
+            <button type="button" onClick={() => deleteContact(el.id)}>
+              Delete
+            </button>
           </li>
         );
       })}

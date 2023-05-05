@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { FindContacts } from './FindContacts/FindContacts';
 import { FormPhonebook } from './FormPhonebook/FormPhonebook';
 import { ContactsPhonebook } from './ContactsPhonebook/ContactsPhonebook';
-import { FindContacts } from './FindContacts/FindContacts';
 import { nanoid } from 'nanoid';
 
 export class App extends Component {
@@ -34,6 +34,7 @@ export class App extends Component {
   };
 
   findName = data => {
+    console.log(this.state.filter);
     this.setState({ filter: data });
   };
 
@@ -43,6 +44,12 @@ export class App extends Component {
     );
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   render() {
     return (
       <div>
@@ -50,7 +57,10 @@ export class App extends Component {
         <FormPhonebook onSubmit={this.formSubmitHandler} />
         <FindContacts onInput={this.findName} />
         <h2>Contacts</h2>
-        <ContactsPhonebook data={this.filteredName} />
+        <ContactsPhonebook
+          data={this.filteredName}
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }
