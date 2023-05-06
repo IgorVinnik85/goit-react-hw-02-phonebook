@@ -1,5 +1,5 @@
-import css from './ContactsPhonebook.module.css'
-
+import PropTypes from 'prop-types';
+import css from './ContactsPhonebook.module.css';
 
 export const ContactsPhonebook = ({ data, deleteContact }) => {
   // console.log(data);
@@ -11,7 +11,11 @@ export const ContactsPhonebook = ({ data, deleteContact }) => {
           <li className={css.item} key={el.id}>
             <span> {el.name}</span>
             <span> {el.number}</span>
-            <button className={css.btn} type="button" onClick={() => deleteContact(el.id)}>
+            <button
+              className={css.btn}
+              type="button"
+              onClick={() => deleteContact(el.id)}
+            >
               Delete
             </button>
           </li>
@@ -19,4 +23,9 @@ export const ContactsPhonebook = ({ data, deleteContact }) => {
       })}
     </ul>
   );
+};
+
+ContactsPhonebook.propTypes = {
+  data: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func.isRequired,
 };

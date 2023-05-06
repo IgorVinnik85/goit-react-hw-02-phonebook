@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import css from './FormPhonebook.module.css';
 import { nanoid } from 'nanoid';
@@ -65,3 +66,7 @@ export class FormPhonebook extends Component {
     );
   }
 }
+
+FormPhonebook.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
