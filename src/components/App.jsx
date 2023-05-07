@@ -46,7 +46,10 @@ export class App extends Component {
     }));
   };
 
+ 
+
   render() {
+    const filteredArray = this.filteredName();
     return (
       <div
         style={{
@@ -61,7 +64,7 @@ export class App extends Component {
         <FindContacts onInput={this.findName} value={this.state.filter} />
         <h2>Contacts</h2>
         <ContactsPhonebook
-          data={this.filteredName}
+          data={filteredArray}
           deleteContact={this.deleteContact}
         />
       </div>
